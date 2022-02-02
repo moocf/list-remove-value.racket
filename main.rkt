@@ -1,14 +1,14 @@
 #lang racket
 
-;; remove: Symbol -> List -> List
-;; usage: (remove symbol list) = remove all occurences of symbol
-(define remove
+;; list.remove-value: Symbol -> List -> List
+;; usage: (list.remove-value symbol list) = list.remove-value all occurences of symbol
+(define list.remove-value
   (lambda (s los)
     (if (null? los)
         '()
         (if (eqv? (car los) s)
-            (remove s (cdr los))
-            (cons (car los) (remove s (cdr los)))))))
+            (list.remove-value s (cdr los))
+            (cons (car los) (list.remove-value s (cdr los)))))))
 
 
 
@@ -18,7 +18,7 @@
 ; (define id expr):
 ; define global identifier
 
-; (lambda (args...) body) 
+; (lambda (args...) body)
 ; define a function
 
 ; (eqv? a b)
